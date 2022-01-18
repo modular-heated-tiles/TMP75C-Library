@@ -1,4 +1,3 @@
-#include <Serial.h>
 #include "TMP75C.h"
 
 TMP75C t1;

@@ -19,7 +19,7 @@ class TMP75C{
   float m_temperature;
   public:
   void init(bool OSmode, int addr, int fq);
-  int32_t read();
+  float read();
   void set_ALERT(int tmphigh, int tmplow);
 };
 

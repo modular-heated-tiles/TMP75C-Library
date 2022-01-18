@@ -6,8 +6,10 @@
  */
 #include "TMP75C.h"
 
-void TMP75C::init(bool OSmode, int addr, int fq):
-    m_isOneShot(OSmode), m_tmpaddr(addr), m_fq(fq){
+void TMP75C::init(bool OSmode, int addr, int fq){
+  m_isOneShot = OSmode;
+  m_tmpaddr = addr;
+  m_fq = fq;
   Wire.begin();
   Wire.beginTransmission(m_tmpaddr);
   Wire.write(TMPCONFIG);
@@ -19,7 +21,7 @@ void TMP75C::init(bool OSmode, int addr, int fq):
 }
 
 // note, untested, there maybe issues with bit to celcius conversion
-int32_t TMP75C::read(){
+float TMP75C::read(){
   if(m_isOneShot){
     // Write to the oneshot register to start conversion
     Wire.beginTransmission(m_tmpaddr);
